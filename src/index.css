@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');*/
+
+body {
+  background: #171717;
+}
 
 .mario-font {
   font-family: 'Press Start 2P', system-ui;

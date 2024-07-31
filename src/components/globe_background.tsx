@@ -1,10 +1,11 @@
-import Globe, { GlobeMethods } from "react-globe.gl";
+import React, { ReactNode } from "react";
+import Globe, { GlobeMethods, GlobeProps } from "react-globe.gl";
 import { useEffect, useRef } from "react";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { useRender } from "../utils/hooks.ts";
 import clsx from "clsx";
-import { useRender } from "../../utils/hooks.ts";
 
-export const LandingBackground = () => {
+export const GlobeBackground: React.FC<GlobeProps> = (props) => {
   const globe = useRef<GlobeMethods>();
 
   const render = useRender();
@@ -33,12 +34,21 @@ export const LandingBackground = () => {
       <Globe
         ref={globe}
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-        enablePointerInteraction={false}
-        pauseAnimation={true}
         width={window.innerWidth}
         height={window.innerHeight}
+        {...props}
       />
-      {/*<div className={clsx("absolute inset-0 backdrop-blur-xl")} />*/}
+    </div>
+  );
+};
+
+export const GlobePage: React.FC<{ children: ReactNode }> = ({ children }) => {
+  return (
+    <div className={clsx("text-neutral-200")}>
+      <GlobeBackground />
+      <div className={clsx("flex justify-center items-center")}>
+        <div className={clsx("max-w-4xl w-full mt-16", "px-4")}>{children}</div>
+      </div>
     </div>
   );
 };
