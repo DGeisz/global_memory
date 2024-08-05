@@ -42,10 +42,14 @@ export const GlobeBackground: React.FC<GlobeProps> = (props) => {
   );
 };
 
-export const GlobePage: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const GlobePage: React.FC<{ children: ReactNode } | GlobeProps> = (
+  props,
+) => {
+  const { children, ...globeProps } = props;
+
   return (
     <div className={clsx("text-neutral-200")}>
-      <GlobeBackground />
+      <GlobeBackground {...globeProps} />
       <div className={clsx("flex justify-center items-center")}>
         <div className={clsx("max-w-4xl w-full mt-16", "px-4")}>{children}</div>
       </div>

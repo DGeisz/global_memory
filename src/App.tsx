@@ -2,7 +2,7 @@
 // import viteLogo from '/vite.svg'
 import "./App.css";
 import Globe from "react-globe.gl";
-import countries from "./countries.json";
+import countries from "./geojson/countries.json";
 
 function App() {
   // const globeEl = useRef<HTMLDivElement | null>(null);
