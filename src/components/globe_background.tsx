@@ -2,23 +2,13 @@ import React, { ReactNode } from "react";
 import Globe, { GlobeMethods, GlobeProps } from "react-globe.gl";
 import { useEffect, useRef } from "react";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { useRender } from "../utils/hooks.ts";
+import { useRenderOnResize } from "../utils/hooks.ts";
 import clsx from "clsx";
 
 export const GlobeBackground: React.FC<GlobeProps> = (props) => {
   const globe = useRef<GlobeMethods>();
 
-  const render = useRender();
-
-  useEffect(() => {
-    function handleResize() {
-      render();
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  useRenderOnResize();
 
   useEffect(() => {
     if (!globe.current) return;
@@ -30,7 +20,16 @@ export const GlobeBackground: React.FC<GlobeProps> = (props) => {
   }, []);
 
   return (
-    <div className={"fixed inset-0 pointer-events-none -z-10"}>
+    <div
+      className={clsx(
+        "fixed",
+        "inset-0",
+        "pointer-events-none",
+        "-z-10",
+        "bg-blue-300",
+        "overflow-visible",
+      )}
+    >
       <Globe
         ref={globe}
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"

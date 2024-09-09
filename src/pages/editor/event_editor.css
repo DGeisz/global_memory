@@ -1,0 +1,41 @@
+.ant-select-selection-placeholder {
+    @apply !text-gray-400;
+}
+
+.ant-select-item-option-content {
+    @apply !text-gray-300;
+}
+
+.ant-select-item-option-active {
+    @apply !bg-gray-700;
+}
+
+.triangle {
+    border-bottom: 10px solid #000000;
+    border-left: 6px solid rgba(0, 0, 0, 0);
+    border-right: 6px solid rgba(0, 0, 0, 0);
+    content: "";
+    display: inline-block;
+    height: 0;
+    vertical-align: top;
+    width: 0;
+    transform: rotate(180deg);
+}
+
+.ant-picker-input {
+    @apply !text-gray-300;
+}
+
+.ant-picker-suffix {
+    @apply !text-gray-300;
+}
+
+.ant-picker-input input::placeholder {
+    @apply !text-gray-400;
+}
+
+.ant-picker-input {
+    @apply !text-gray-400;
+}
+
+

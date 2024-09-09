@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
+    "@rollup/plugin-dsv": "^3.0.4",
     "antd": "^5.19.4",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.12",
